@@ -1,6 +1,6 @@
 # HALO: Hazard-Aware Landing Optimization for Autonomous Systems
 
-[<img src="https://i.ytimg.com/vi/KqCXGDTntDU&ab_channel=AutonomousControlLaboratory/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=KqCXGDTntDU&ab_channel=AutonomousControlLaboratory "HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)")
+[<img src="https://i.ytimg.com/vi/KqCXGDTntDU&ab/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=KqCXGDTntDU&ab "HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)")
 <!-- [![HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)](https://img.youtube.com/vi/KqCXGDTntDU&ab_channel=AutonomousControlLaboratory/0.jpg)](https://www.youtube.com/watch?v=KqCXGDTntDU&ab_channel=AutonomousControlLaboratory "HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)") -->
 
 ## Abstract

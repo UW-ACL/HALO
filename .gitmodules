@@ -1,0 +1,3 @@
+[submodule "AdaptiveDDTO"]
+	path = AdaptiveDDTO
+	url = https://github.com/sbuckner50/AdaptiveDDTO

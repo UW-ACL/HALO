@@ -1,6 +1,6 @@
 # HALO: Hazard-Aware Landing Optimization for Autonomous Systems
 
-[![HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)](https://img.youtube.com/vi/KqCXGDTntDU&ab_channel=AutonomousControlLaboratory/0.jpg)](https://www.youtube.com/watch?v=KqCXGDTntDU&ab_channel=AutonomousControlLaboratory)
+[![HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)](https://img.youtube.com/vi/KqCXGDTntDU&ab_channel=AutonomousControlLaboratory/0.jpg)](https://www.youtube.com/watch?v=KqCXGDTntDU&ab_channel=AutonomousControlLaboratory "HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)")
 
 ## Abstract
 **(See the full paper on arXiv [here](https://arxiv.org/abs/2304.01583))**
@@ -11,4 +11,4 @@ With autonomous aerial vehicles enacting safety-critical missions, such as the M
 This repository contains submodules to both the **Hazard-Aware Landing Site Selection (HALSS)** (TBD) and **Adaptive Deferred-Decision Trajectory Optimization (Adaptive-DDTO)** repositories. In each aforementioned repository, you will find a 📜`demo.ipynb` file that illustrates how each algorithm works.
 
 ## Where is the AirSim component?
-For multiple reasons, the authors have decided to leave out the AirSim component of this work in the public release. If you are interested in using or replicating our results in the AirSim environment, please reach out to either `haynec@uw.edu` or `sbuckne1@uw.edu` directly and we can discuss setting it up.
+For multiple reasons, the authors have decided to leave out the AirSim component of this work in the public release. If you are interested in using or replicating our results in the AirSim environment, please reach out to either `haynec@uw.edu` or `sbuckne1@uw.edu` directly.

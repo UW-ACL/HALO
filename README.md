@@ -12,3 +12,14 @@ This repository contains submodules to both the **Hazard-Aware Landing Site Sele
 
 ## Where is the AirSim component?
 For multiple reasons, the authors have decided to leave out the AirSim component of this work in the public release. If you are interested in using or replicating our results in the AirSim environment, please reach out to either `haynec@uw.edu` or `sbuckne1@uw.edu` directly.
+
+## Citing
+If you use either of the aforementioned algorithms, kindly cite the following associated publication.
+```
+@article{hayner2023halo,
+  title={HALO: Hazard-Aware Landing Optimization for Autonomous Systems},
+  author={Hayner, Christopher R and Buckner, Samuel C and Broyles, Daniel and Madewell, Evelyn and Leung, Karen and Acikmese, Behcet},
+  journal={arXiv preprint arXiv:2304.01583},
+  year={2023}
+}
+```

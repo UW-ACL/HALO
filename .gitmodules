@@ -1,3 +1,6 @@
 [submodule "AdaptiveDDTO"]
 	path = AdaptiveDDTO
 	url = https://github.com/sbuckner50/AdaptiveDDTO
+[submodule "HALSS"]
+	path = HALSS
+	url = https://github.com/haynec/HALSS.git

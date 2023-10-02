@@ -1,0 +1,27 @@
+name: halo
+channels:
+ - conda-forge
+ - nvidia
+ - pytorch
+dependencies:
+ - python=3.10
+ - pytorch
+ - torchvision
+ - torchaudio
+ - pytorch-cuda=11.7
+ - cudatoolkit=11.7
+ - mamba
+ - gdal
+ - ipykernel
+ - jupyterlab
+ - scikit-image
+ - scipy
+ - matplotlib
+ - pip
+ - pip:
+   - julia
+   - open3d
+   - opencv-contrib-python
+   - airsim
+   - msgpack-rpc-python
+   - tornado==4.5.3

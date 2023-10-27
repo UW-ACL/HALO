@@ -23,7 +23,7 @@ If any information in this README is unclear, any setup issues are encountered, 
 * Anaconda -- latest version (see setup instructions [here]([https://www.anaconda.com/](https://www.anaconda.com/download))
 
 ### Environment Configuration:
-TBD (will use `Airsim/setup/halo_depthmap.png`)
+TBD (will use `Airsim/setup/halo_depthmap.png` to create a new project. For the time being, reach out to the corresponding authors to receive the project file directly).
 
 ### Other Steps:
 The settings file provided at `AirSim/setup/settings.json` must be relocated on a Windows machine to the path `C:/Documents/AirSim/settings.json` as per AirSim setup instructions. 

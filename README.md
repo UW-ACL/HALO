@@ -16,11 +16,18 @@ This repository contains submodules to both the **Hazard-Aware Landing Site Sele
 * Unreal Engine version 4.27.2 (see setup instructions [here](https://www.unrealengine.com/en-US/free-download/game-development-engine?utm_source=GoogleSearch&utm_medium=Performance&utm_campaign=20121040491&utm_id=150460841753&utm_term=video%20game%20engines&utm_content=669868333880))
 * Microsoft AirSim platform (see setup instructions [here](https://microsoft.github.io/AirSim/))
 * Julia -- latest version (see setup instructions [here](https://julialang.org/downloads/))
-* Python version 3.10 (or later -- see `environment.yaml`).
+* Anaconda -- latest version (see setup instructions [here]([https://www.anaconda.com/](https://www.anaconda.com/download)))
 
-### Configuration
+### Environment Configuration:
+TBD (will use `Airsim/setup/halo_depthmap.png`)
 
+### Other Steps:
+The settings file provided at `AirSim/setup/settings.json` must be relocated on a Windows machine to the path `C:/Documents/AirSim/settings.json` as per AirSim setup instructions. 
 
+Additionally, a new Anaconda ("conda") environment must be created using the `environment.yaml` file with the following commmand:
+```
+conda env create -f environment.yml
+```
 
 ## Citing
 If you use either of the aforementioned algorithms, kindly cite the following associated publication.

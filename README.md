@@ -3,7 +3,7 @@
 [![HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)](media/youtube_snapshot.png)](https://www.youtube.com/watch?v=KqCXGDTntDU&ab_channel=AutonomousControlLaboratory "HALO: Hazard Aware Landing Optimization for Autonomous Systems (ICRA 2023)")
 
 ## Abstract
-**(See the full paper [here]([https://arxiv.org/abs/2304.01583](https://ieeexplore.ieee.org/document/10160655)))**
+**(See the full paper [here]([https://arxiv.org/abs/2304.01583](https://ieeexplore.ieee.org/document/10160655))**
 
 With autonomous aerial vehicles enacting safety-critical missions, such as the Mars Science Laboratory Curiosity rover's landing on Mars, the tasks of automatically identifying and reasoning about potentially hazardous landing sites is paramount. This paper presents a coupled perception-planning solution which addresses the hazard detection, optimal landing trajectory generation, and contingency planning challenges encountered when landing in uncertain environments. Specifically, we develop and combine two novel algorithms, Hazard-Aware Landing Site Selection (HALSS) and Adaptive Deferred-Decision Trajectory Optimization (Adaptive-DDTO), to address the perception and planning challenges, respectively. The HALSS framework processes point cloud information to identify feasible safe landing zones, while Adaptive-DDTO is a multi-target contingency planner that adaptively replans as new perception information is received. We demonstrate the efficacy of our approach using a simulated Martian environment and show that our coupled perception-planning method achieves greater landing success whilst being more fuel efficient compared to a nonadaptive DDTO approach.
 
@@ -20,7 +20,7 @@ If any information in this README is unclear, any setup issues are encountered, 
 * Unreal Engine version 4.27.2 (see setup instructions [here](https://www.unrealengine.com/en-US/free-download/game-development-engine?utm_source=GoogleSearch&utm_medium=Performance&utm_campaign=20121040491&utm_id=150460841753&utm_term=video%20game%20engines&utm_content=669868333880))
 * Microsoft AirSim platform (see setup instructions [here](https://microsoft.github.io/AirSim/))
 * Julia -- latest version (see setup instructions [here](https://julialang.org/downloads/))
-* Anaconda -- latest version (see setup instructions [here]([https://www.anaconda.com/](https://www.anaconda.com/download))
+* Anaconda -- latest version (see setup instructions [here](https://www.anaconda.com/](https://www.anaconda.com/download))
 
 ### Environment Configuration:
 TBD (will use `Airsim/setup/halo_depthmap.png` to create a new project. For the time being, reach out to the corresponding authors to receive the project file directly).

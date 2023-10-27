@@ -56,7 +56,7 @@ path_input = os.getcwd() + '\\AirSim\\temp\\traj_to_percep.npy'
 # Initialize Parameters
 # #####################
 params = parameters()
-params.x_cell_size_coarse = 4 # Size of cell in x direction for Coarse Downsampling
+params.x_cell_size_coarse = 4 # Size of cell in x direction fosr Coarse Downsampling
 params.y_cell_size_coarse = 4 # Size of cell in y direction for Coarse Downsampling
 params.x_cell_size_fine = 0.5 # Size of cell in x direction for Fine Downsampling
 params.y_cell_size_fine = 0.5 # Size of cell in y direction for Fine Downsampling

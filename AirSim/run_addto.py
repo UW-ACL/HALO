@@ -6,10 +6,7 @@
 # ##############
 # Python Imports
 # ##############
-# Airsim
 import airsim
-
-# Other
 import sys
 import logging
 from matplotlib import cm
@@ -76,7 +73,7 @@ os.remove(path_sub_halss2addto) if exists(path_sub_halss2addto) else None
 # Simulation parameters
 dt_print = .1       # [s] Simulation printing update time-step
 dt_sim   = .1       # [s] Simulation time-step
-h_cut    = 65.      # [m] Altitude condition to commit to best target
+h_cut    = 65.      # [m] Altitude condition to commit to best target (guidance lock condition)
 h_term   = 2.       # [m] Altitude condition to terminate descent phase
 R_ROI    = 25.      # [m] Radius of the region of interest for randomized targets (if flag_HALSS_enabled = False)
 sim_timeout = 200.  # [s] Simulation timeout
@@ -96,21 +93,23 @@ flag_HALSS_subprocess = False # If false, will not run HALSS in a subprocess (mu
 flag_touchdown        = True # If false, will not require touchdown at end of simulation
 flag_display_tracking = False # If false, will not display red point for current tracked waypoint
 
-# Visualization parameters 
+# Initialize quadcopter guidance object
 quad = Main.Lander()
+
+# Visualization parameters 
 color_targs = cm.get_cmap('gist_rainbow')(np.linspace(0,1,quad.n_targs_max)).tolist()
 
 # Helper functions
 findfirst_eq = lambda cond,list : [i for i,x in enumerate(list) if x == cond][0]
 
 # ..:: Set initial conditions ::..
-quad = Main.Lander()
 quad.r0[0] = 0.
 quad.r0[1] = 0.
 quad.r0[2] = 150.
 quad.v0[0] = 0.
 quad.v0[1] = 0.
 quad.v0[2] = 0.
+initial_pos = quad.r0
 
 # ..:: Initialize simulation variables ::..
 # Simulation status

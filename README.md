@@ -20,7 +20,7 @@ If any information in this README is unclear, any setup issues are encountered, 
 * Unreal Engine version 4.27.2 (see setup instructions [here](https://www.unrealengine.com/en-US/free-download/game-development-engine?utm_source=GoogleSearch&utm_medium=Performance&utm_campaign=20121040491&utm_id=150460841753&utm_term=video%20game%20engines&utm_content=669868333880))
 * Microsoft AirSim platform (see setup instructions [here](https://microsoft.github.io/AirSim/))
 * Julia -- latest version (see setup instructions [here](https://julialang.org/downloads/))
-* Anaconda -- latest version (see setup instructions [here](https://www.anaconda.com/](https://www.anaconda.com/download))
+* Anaconda -- latest version (see setup instructions [here](https://www.anaconda.com/download))
 
 ### Environment Configuration:
 TBD (will use `Airsim/setup/halo_depthmap.png` to create a new project. For the time being, reach out to the corresponding authors to receive the project file directly).

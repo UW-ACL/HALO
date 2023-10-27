@@ -16,7 +16,7 @@ This repository contains submodules to both the **Hazard-Aware Landing Site Sele
 * Unreal Engine version 4.27.2 (see setup instructions [here](https://www.unrealengine.com/en-US/free-download/game-development-engine?utm_source=GoogleSearch&utm_medium=Performance&utm_campaign=20121040491&utm_id=150460841753&utm_term=video%20game%20engines&utm_content=669868333880))
 * Microsoft AirSim platform (see setup instructions [here](https://microsoft.github.io/AirSim/))
 * Julia -- latest version (see setup instructions [here](https://julialang.org/downloads/))
-* Anaconda -- latest version (see setup instructions [here]([https://www.anaconda.com/](https://www.anaconda.com/download)))
+* Anaconda -- latest version (see setup instructions [here]([https://www.anaconda.com/](https://www.anaconda.com/download))
 
 ### Environment Configuration:
 TBD (will use `Airsim/setup/halo_depthmap.png`)
@@ -28,6 +28,29 @@ Additionally, a new Anaconda ("conda") environment must be created using the `en
 ```
 conda env create -f environment.yml
 ```
+
+## Operation
+HALSS and Adaptive-DDTO are currently configured to communicate through a manual publisher-subscriber architecture using [NumPy data files](https://numpy.org/devdocs/user/how-to-io.html) temporarily stored in `AirSim/temp`. This will eventually be refactored for communication in [ROS](https://www.ros.org/) instead. The `AirSim/` folder contains two run files, `run_halss.py` and `run_addto.py`, along with utility scripts and functions in the `utils/` folder. Most hyperparameters can be set in either of these top-level run files (with some exceptions that must be set in `AdaptiveDDTO/src/params.jl`); please see the next section for more information. While HALSS is natively written in Python, Adaptive-DDTO is entirely written in the Julia language, with the `PyCall.jl` package used to facilitate communication with Adaptive-DDTO codebase.
+
+To simulate a HALO scenario, open two separate terminals, `cd` to the top level of this repository, and begin with activating the configured Anaconda environment in both:
+```
+$conda activate halo
+```
+
+The actual AirSim simulation loop is initiated in `run_addto.py`, and so proceed to calling the following in one terminal:
+```
+$python AirSim/run_addto.py
+```
+
+This script will proceed with vehicle setup until the vehicle is positioned at the desired initial conditions (set in the corresponding run file). Once the vehicle is positioned correctly, the script will pause for user input with the line `[INPUT]: Press any key to begin landing maneuver`. At this point, switch to the other terminal, and proceed to call the HALSS process:
+```
+$python AirSim/run_halss.py
+```
+
+Once the HALSS process has began producing a (consistently-updated) plotting interface, switch back to the Adaptive-DDTO process terminal, and press any key to engage the simulation loop. We note that the first time Julia runs the Adaptive-DDTO code stack, it is also compiling, and so the first trajectory execution will take a considerably-longer amount of time than all proceeding executions. We also note that HALSS can also be instantiated as a Python subprocess by setting the flag `flag_HALSS_subprocess = True` in `run_addto.py`, allowing this whole simulation to be executed in one terminal, however doing this will prevent access to debugging print statements in the HALSS process.
+
+## Scenario and Hyperparameter Configuration
+
 
 ## Citing
 If you use either of the aforementioned algorithms, kindly cite the following associated publication.

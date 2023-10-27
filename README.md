@@ -10,6 +10,10 @@ With autonomous aerial vehicles enacting safety-critical missions, such as the M
 ## Overview
 This repository contains submodules to both the **Hazard-Aware Landing Site Selection (HALSS)** and **Adaptive Deferred-Decision Trajectory Optimization (Adaptive-DDTO)** repositories, as well as code to interface these submodules together in the **AirSim** environment. In each aforementioned submodule repository, you will find a 📜`demo.ipynb` file that illustrates how each algorithm works. Results from the full paper cannot be precisely replicated at this time, as the full HALO environment assets cannot be made public, however instructions are provided below to enable simulation in a similar environment with a provided digital elevation map (DEM).
 
+If any information in this README is unclear, any setup issues are encountered, or consultation for a specific application is desired, please feel free to reach out to the corresponding authors:
+* Christopher Hayner (`haynec@uw.edu`)
+* Samuel Buckner (`sbuckne1@uw.edu`)
+
 ## Setup
 
 ### Software Requirements:
@@ -50,7 +54,20 @@ $ python AirSim/run_halss.py
 Once the HALSS process has began producing a (consistently-updated) plotting interface, switch back to the Adaptive-DDTO process terminal, and press any key to engage the simulation loop. We note that the first time Julia runs the Adaptive-DDTO code stack, it is also compiling, and so the first trajectory execution will take a considerably-longer amount of time than all proceeding executions. We also note that HALSS can also be instantiated as a Python subprocess by setting the flag `flag_HALSS_subprocess = True` in `run_addto.py`, allowing this whole simulation to be executed in one terminal, however doing this will prevent access to debugging print statements in the HALSS process.
 
 ## Scenario and Hyperparameter Configuration
+We will briefly describe some important notes on hyperparameters and scenario configuration for a specific application.
 
+### HALSS
+The `run_halss.py` script contains a variety of flags to enable plotting and debugging capabilities, as well as `flag.flag_coarse_method`. This flag is particularly important, as it controls whether the HALSS segmentation network is used (as described in the full-length paper) or not. If the user wants to run a HALO scenario without extra configuration in their environment, the geometric approach to coarse landing site selection (`geo` flag) can be used for any landing surface. However, if the segmentation network is desired (`nn` flag), the network must be trained for the specific environment using `HALSS/HALSS_utils/network_utils/train.py` (more documentation TBD -- please reach out to the corresponding authors to discuss training for a specific application). Specific parameters relating to the HALSS algorithm, as well as to the safety of the vehicle (see `params.alpha`), are also set here.
+
+### Adaptive-DDTO
+Due to limitations with the `PyCall` package, configuration for Adaptive-DDTO is handled in two separate locations: the `run_addto.py` script and the `AdaptiveDDTO/src/params.jl` file.
+
+In `run_addto.py`, all scenario parameters can be set, such as the initial conditions of the vehicle in terms of position and velocity, tracking parameters such as the guidance lock (`h_cut`) and landing success criterion (`h_term`) altitudes, and other simulation parameters. Additionally, many flags for simulation control, visualization modification and debugging can be set here.
+
+In `AdaptiveDDTO/src/params.jl`, all Adaptive-DDTO algorithm parameters and vehicle configuration can be set. Many parameters are already appropriately set for the default AirSim quadcopter object in a landing scenario, however if the problem definition had to change for a specific application (in terms of optimization constraints, for example), parameters can be appropriated adjusted in the `Lander` object located here (along with modifying the problem definition in `solve_ddto.jl` and `solve_optimal.jl`).
+
+> [!IMPORTANT]  
+> HALSS and Adaptive-DDTO have one "shared" parameter: the maximum number of landing sites to be considered. This parameter must be set in **two** locations or else unexpected behavior may occur: `params.max_sites` in `run_halss.py` and `n_targs_max` in `AdaptiveDDTO/src/params.jl`.
 
 ## Citing
 If you use either of the aforementioned algorithms, kindly cite the following associated publication.

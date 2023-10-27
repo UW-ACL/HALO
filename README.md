@@ -67,7 +67,7 @@ In `run_addto.py`, all scenario parameters can be set, such as the initial condi
 In `AdaptiveDDTO/src/params.jl`, all Adaptive-DDTO algorithm parameters and vehicle configuration can be set. Many parameters are already appropriately set for the default AirSim quadcopter object in a landing scenario, however if the problem definition had to change for a specific application (in terms of optimization constraints, for example), parameters can be appropriated adjusted in the `Lander` object located here (along with modifying the problem definition in `solve_ddto.jl` and `solve_optimal.jl`).
 
 > [!IMPORTANT]  
-> HALSS and Adaptive-DDTO have one "shared" parameter: the maximum number of landing sites to be considered. This parameter must be set in **two** locations or else unexpected behavior may occur: `params.max_sites` in `run_halss.py` and `n_targs_max` in `AdaptiveDDTO/src/params.jl`.
+> HALSS and Adaptive-DDTO have one "shared" parameter: the maximum number of landing sites to be considered. This parameter must be set to the same desired value in **two** locations (or else unexpected behavior may occur): `params.max_sites` in `run_halss.py` and `n_targs_max` in `AdaptiveDDTO/src/params.jl`.
 
 ## Citing
 If you use either of the aforementioned algorithms, kindly cite the following associated publication.

@@ -1,0 +1,142 @@
+{
+  "SimMode" : "Multirotor", 
+  "SettingsVersion" : 1.2,
+  "LogMessagesVisible": false,
+  "SeeDocsAt" : "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+  "CameraDefaults": {
+    "CaptureSettings": [
+      {
+        "ImageType": 0,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 1,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 2,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 3,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 4,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 5,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 6,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      },
+      {
+        "ImageType": 7,
+        "Width": 608,
+        "Height": 608,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      }
+  ]
+},
+  "Vehicles": {
+     "Drone1": {
+         "VehicleType": "SimpleFlight",
+         "AutoCreate": true,
+         "Sensors": {
+            "LidarSensor1": {
+              "SensorType": 6,
+              "Enabled" : true,
+              "Range" : 500,
+              "RotationsPerSecond": 50,
+              "NumberOfChannels": 128,
+              "PointsPerSecond": 100000,
+              "X": 0, "Y": 0, "Z": 0,
+              "Roll": 0, "Pitch": 0, "Yaw" : 0,
+              "VerticalFOVUpper": -60,
+              "VerticalFOVLower": -90,
+              "HorizontalFOVStart": 0,
+              "HorizontalFOVEnd": 0,
+              "DataFrame": "SensorLocalFrame",
+              "DrawDebugPoints": false
+            },
+            "LidarSensor2": {
+              "SensorType": 6,
+              "Enabled" : true,
+              "Range" : 500,
+              "RotationsPerSecond": 50,
+              "NumberOfChannels": 128,
+              "PointsPerSecond": 100000,
+              "X": 0, "Y": 0, "Z": 0,
+              "Roll": 0, "Pitch": 0, "Yaw" : 0,
+              "VerticalFOVUpper": -60,
+              "VerticalFOVLower": -90,
+              "HorizontalFOVStart": 0,
+              "HorizontalFOVEnd": 0,
+              "DataFrame": "VehicleInertialFrame",
+              "DrawDebugPoints": false
+            }
+          }
+         
+    }
+    
+  },
+  "ExternalCameras": {
+    "DemoAerialView": {
+      "CaptureSettings": [
+        {
+          "ImageType": 0,
+          "Width": 1000,
+          "Height": 1000,
+          "FOV_Degrees": 90
+        }
+      ],
+      "X": -194.13, "Y": 192.85, "Z": -239.87,
+      "Pitch": -90, "Roll": 0, "Yaw": 0
+    },
+    "DemoSideView": {
+      "CaptureSettings": [
+        {
+          "ImageType": 0,
+          "Width": 1000,
+          "Height": 1000,
+          "FOV_Degrees": 90
+        }
+      ],
+      "X": -50, "Y": 192.85, "Z": -259.87,
+      "Pitch": -30, "Roll": 0, "Yaw": 180
+    }
+  }
+}

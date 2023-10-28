@@ -17,7 +17,7 @@ from HALSS.HALSS_utils.network_utils.model_arch import *
 from HALSS.HALSS_utils.network_utils.augment import *
 from HALSS.HALSS_utils.seg_utils import *
 from HALSS.HALSS_utils.halss_utils import *
-from AirSim.utils.airsim_traj_utils import get_agl_altitude
+from AirSim.sim_utils import get_agl_altitude
 
 import numpy as np
 import open3d as o3d
@@ -51,7 +51,6 @@ flags.flag_coarse_method = 'geo' # Choose "geo" for inclination-based HD or "nn"
 client.simFlushPersistentMarkers()
 path_input = os.getcwd() + '\\AirSim\\temp\\traj_to_percep.npy'
 
-
 # #####################
 # Initialize Parameters
 # #####################
@@ -60,11 +59,11 @@ params.x_cell_size_coarse = 4 # Size of cell in x direction fosr Coarse Downsamp
 params.y_cell_size_coarse = 4 # Size of cell in y direction for Coarse Downsampling
 params.x_cell_size_fine = 0.5 # Size of cell in x direction for Fine Downsampling
 params.y_cell_size_fine = 0.5 # Size of cell in y direction for Fine Downsampling
-params.alpha = 15 # Maximum allowable inclination angle in degrees
+params.alpha = 15 # Maximum allowable inclination angle of surface, in degrees
 params.max_sites = 7 # Maximum number of sites to be considered
-params.grid_res = 320 # Resolution of grid to be used for segmentation
-params.thresh = 0.1 # Threshold for variance-aware safety map threshold
-params.num_mc_samples = 30 # Number of Monte Carlo samples to be used for variance-aware safety map
+params.grid_res = 320 # Resolution of grid to be used for segmentation (learning-based HD only)
+params.thresh = 0.1 # Threshold for variance-aware safety map threshold (learning-based HD only)
+params.num_mc_samples = 30 # Number of Monte Carlo samples to be used for variance-aware safety map (learning-based HD only)
 params.media_save_path = os.getcwd() + '\\HALSS\\media\\' # Path to save images
 
 # #####################

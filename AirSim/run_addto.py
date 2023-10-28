@@ -23,7 +23,7 @@ import traceback
 
 # Custom libraries
 sys.path.append(os.getcwd())
-from AirSim.utils.airsim_traj_utils import *
+from AirSim.sim_utils import *
 from HALSS.HALSS_utils.halss_utils import plotCircles_NED
 
 # Debugger
@@ -55,7 +55,10 @@ Main.include("AdaptiveDDTO\\src\\plots_utils.jl")
 Main.include("AdaptiveDDTO\\src\\plots_core.jl")
 Main.set_fonts()
 Main.pygui(False)
+print("[Julia] external libraries successfully imported")
 
+# Instantiate quadcopter object
+quad = Main.Lander()
 
 # ###############
 # Parameters
@@ -93,14 +96,8 @@ flag_HALSS_subprocess = False # If false, will not run HALSS in a subprocess (mu
 flag_touchdown        = True # If false, will not require touchdown at end of simulation
 flag_display_tracking = False # If false, will not display red point for current tracked waypoint
 
-# Initialize quadcopter guidance object
-quad = Main.Lander()
-
-# Visualization parameters 
+# Trajectory colormap
 color_targs = cm.get_cmap('gist_rainbow')(np.linspace(0,1,quad.n_targs_max)).tolist()
-
-# Helper functions
-findfirst_eq = lambda cond,list : [i for i,x in enumerate(list) if x == cond][0]
 
 # ..:: Set initial conditions ::..
 quad.r0[0] = 0.
@@ -145,8 +142,9 @@ flag_guid_recently_updated = True # Flag to indicate if guidance has been update
 flag_descent_complete      = False # Signals the end of the simulation/descent phase
 flag_temp                  = True # Temporary flag for debugging
 
-# Other variables
+# Other variables and functions
 time_last_print = 0.0
+findfirst_eq = lambda cond,list : [i for i,x in enumerate(list) if x == cond][0]
 
 # Initialize results storage containers
 results_guid_update_branches = []
@@ -656,7 +654,8 @@ print("   Cumulative control effort (thrust magnitude): {:.2f} N-s".format(cost_
 print("   Error code: {:n}".format(sim_error_code.value))
 
 # # ##############################
-# # Store results & generate plots
+# # Store results & generate plots 
+# # (TODO: needs to be fixed for general usage)
 # # ##############################
 
 # # Adjust other results as needed
@@ -665,5 +664,3 @@ print("   Error code: {:n}".format(sim_error_code.value))
 # # ..:: Plotting ::..
 # Main.plot_addto_parametric_3D_trajectory(quad, results_sim_sol, results_guid_update_branches, results_guid_update_trajs, view_az=-45)
 # Main.plot_addto_results_icra2023(quad, results_sim_sol, results_guid_update_branches, results_guid_update_trajs, results_targs_radii, results_guid_update_time, guid_lock_time)
-
-# debug()

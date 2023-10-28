@@ -28,10 +28,12 @@ TBD (will use `Airsim/setup/halo_depthmap.png` to create a new project. For the 
 ### Other Steps:
 The settings file provided at `AirSim/setup/settings.json` must be relocated on a Windows machine to the path `C:/Documents/AirSim/settings.json` as per AirSim setup instructions. 
 
-Additionally, a new Anaconda ("conda") environment must be created using the `environment.yaml` file with the following commmand:
+Additionally, a new Anaconda ("conda") environment must be created using the `environment.yml` file with the following commmand:
 ```
 $ conda env create -f environment.yml
 ```
+
+Finally, a list of Julia packages (specified in `AdaptiveDDTO/src/setup.jl`) must be installed globally.
 
 ## Operation
 HALSS and Adaptive-DDTO are currently configured to communicate through a manual publisher-subscriber architecture using [NumPy data files](https://numpy.org/devdocs/user/how-to-io.html) temporarily stored in `AirSim/temp`. This will eventually be refactored for communication in [ROS](https://www.ros.org/) instead. The `AirSim/` folder contains two run files, `run_halss.py` and `run_addto.py`, along with utility scripts and functions in the `utils/` folder. Most hyperparameters can be set in either of these top-level run files (with some exceptions that must be set in `AdaptiveDDTO/src/params.jl`); please see the next section for more information. While HALSS is natively written in Python, Adaptive-DDTO is entirely written in the Julia language, with the `PyCall.jl` package used to facilitate communication with Adaptive-DDTO codebase.
@@ -64,13 +66,13 @@ Due to limitations with the `PyCall` package, configuration for Adaptive-DDTO is
 
 In `run_addto.py`, all scenario parameters can be set, such as the initial conditions of the vehicle in terms of position and velocity, tracking parameters such as the guidance lock (`h_cut`) and landing success criterion (`h_term`) altitudes, and other simulation parameters. Additionally, many flags for simulation control, visualization modification and debugging can be set here.
 
-In `AdaptiveDDTO/src/params.jl`, all Adaptive-DDTO algorithm parameters and vehicle configuration can be set. Many parameters are already appropriately set for the default AirSim quadcopter object in a landing scenario, however if the problem definition had to change for a specific application (in terms of optimization constraints, for example), parameters can be appropriated adjusted in the `Lander` object located here (along with modifying the problem definition in `solve_ddto.jl` and `solve_optimal.jl`).
+In `AdaptiveDDTO/src/params.jl`, all Adaptive-DDTO algorithm parameters and vehicle configuration can be set. Many parameters are already appropriately set for the default AirSim quadcopter object in a landing scenario, however if the problem definition had to change for a specific application (in terms of optimization constraints, for example), parameters can be adjusted in the `Lander` object located here (along with modifying the problem definition in `solve_ddto.jl` and `solve_optimal.jl`).
 
 > [!IMPORTANT]  
 > HALSS and Adaptive-DDTO have one "shared" parameter: the maximum number of landing sites to be considered. This parameter must be set to the same desired value in **two** locations (or else unexpected behavior may occur): `params.max_sites` in `run_halss.py` and `n_targs_max` in `AdaptiveDDTO/src/params.jl`.
 
 ## Citing
-If you use either of the aforementioned algorithms, kindly cite the following associated publication.
+If you use the HALO framework or either of its constituent algorithms, kindly cite the following associated publication.
 ```
 @inproceedings{hayner2023halo,
   title={HALO: Hazard-Aware Landing Optimization for Autonomous Systems},

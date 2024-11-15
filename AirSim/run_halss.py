@@ -158,8 +158,6 @@ while i<max_iter:
       t1_full_set_landing_site = time.time()
       if flags.flag_timing:
         print("--> [TIMING: Time to find full set of landing sites: ", t1_full_set_landing_site-t0_full_set_landing_site, "]")
-    else:
-      print("--> [HALSS: Fucked the bed!]")
 
     if len(halss_global.radii_ned) > params.max_sites:
       print("--> [Warning!: Number of sites exceeds maximum number of sites!]")
